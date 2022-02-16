@@ -39,3 +39,13 @@ new_car = cart.duplicateCar
 new_car.setName("Yuri")
 new_car.info
 cart.info
+
+carts = []
+carts << cart << new_car
+
+def get_bigger_cart_property_using_lambda(cart_array, &attribute)
+	attribute.call cart_array.sort { |cart1, cart2|  attribute.call(cart1) <=>  attribute.call(cart2) }.last
+end
+
+puts get_bigger_cart_property_using_lambda(carts, &:public_name)
+puts get_bigger_cart_property_using_lambda(carts, &:public_year)

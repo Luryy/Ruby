@@ -12,6 +12,12 @@ puts "\narray.join & tr"
 puts array.join ","
 puts array.join(",").tr("a", "$")
 
+puts "\narray.count"
+puts array.count { |array| array == "test" }
+
+puts "\narray.sort.last"
+puts array.sort { |array1, array2| array1 <=> array2 }.last
+
 
 puts "\nstring.chars.each_with_index"
 string = "test"
