@@ -8,4 +8,9 @@ class ExamplesController < ApplicationController
 		puts "show"
 		@ex = { "ok" => params[:id] }
 	end
+
+	def create
+		puts "create"
+		@ex = Example.create(name: params[:name], age: params[:age], description: params[:description])
+	end
 end
