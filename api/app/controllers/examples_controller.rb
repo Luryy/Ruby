@@ -19,4 +19,9 @@ class ExamplesController < ApplicationController
 		Example.destroy params[:id]
 		render status: 204, json: {}
 	end
+
+	def search_name
+		puts "search_name"
+		@exs = Example.where "name like ?", "#{params[:name]}%"
+	end
 end
