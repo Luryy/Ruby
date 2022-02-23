@@ -1,0 +1,6 @@
+{
+	id: example.id,
+	name: example.name,
+	age: example.age,
+	description: example.description
+}

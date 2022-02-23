@@ -1,3 +1,2 @@
-@ex.map do |x|
-	x["ok"]
-end
+
+render(@exs) || []

@@ -1,12 +1,12 @@
 class ExamplesController < ApplicationController
 	def index
 		puts "index"
-		@ex = [{ "ok" =>  true }, { "ok" =>  false }, { "ok" =>  true }]
+		@exs = Example.all
 	end
 
 	def show
 		puts "show"
-		@ex = { "ok" => params[:id] }
+		@ex = Example.find(params[:id])
 	end
 
 	def create

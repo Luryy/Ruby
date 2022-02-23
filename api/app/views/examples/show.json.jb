@@ -1,1 +1,1 @@
-@ex
+render(@ex)
