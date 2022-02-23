@@ -13,4 +13,10 @@ class ExamplesController < ApplicationController
 		puts "create"
 		@ex = Example.create(name: params[:name], age: params[:age], description: params[:description])
 	end
+
+	def destroy
+		puts "destroy"
+		Example.destroy params[:id]
+		render status: 204, json: {}
+	end
 end
