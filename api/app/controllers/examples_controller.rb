@@ -11,15 +11,23 @@ class ExamplesController < ApplicationController
 
 	def create
 		puts "create"
-		@ex = Example.create(name: params[:name], age: params[:age], description: params[:description])
+		ex_params = {name: params[:name], age: params[:age], description: params[:description]}
+		@ex = Example.new ex_params
+		was_saved = @ex.save
+		unless was_saved
+			render :json => { :errors => @ex.errors.full_messages }, :status => 412
+		end
 	end
 
 	def update
 		@ex = Example.find(params[:id])
-		@ex.name = params[:name]
-		@ex.age = params[:age]
-		@ex.description = params[:description]
-		@ex.save
+		@ex.name = params[:name] if params[:name]
+		@ex.age = params[:age] if params[:age]
+		@ex.description = params[:description] if params[:description]
+		was_saved = @ex.save
+		unless was_saved
+			render :json => { :errors => @ex.errors.full_messages }, :status => 412
+		end
 	end
 
 	def destroy
