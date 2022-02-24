@@ -2,5 +2,10 @@
 	id: example.id,
 	name: example.name,
 	age: example.age,
-	description: example.description
+	description: example.description,
+	relation_url: example.example_relation&.url,
+	relation_id: example.example_relation_id,
+	relation: example.example_relation,
+	relation_render: (render("example_relations/example_relation",
+		example_relation: example.example_relation) if example.example_relation)
 }

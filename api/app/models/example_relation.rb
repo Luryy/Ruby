@@ -1,0 +1,2 @@
+class ExampleRelation < ApplicationRecord
+end

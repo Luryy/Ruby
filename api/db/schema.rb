@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_213117) do
+ActiveRecord::Schema.define(version: 2022_02_24_151324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "example_relations", force: :cascade do |t|
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "examples", force: :cascade do |t|
     t.string "name"
@@ -21,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_213117) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "example_relation_id"
   end
 
 end

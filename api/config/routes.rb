@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 			get "search/:name", to: "examples#search_name", as: "example_search_name"
 		end
 	end
+
+	resources :example_relations, only: [:index, :show, :create, :update, :destroy]
   end
 end

@@ -11,7 +11,12 @@ class ExamplesController < ApplicationController
 
 	def create
 		puts "create"
-		ex_params = {name: params[:name], age: params[:age], description: params[:description]}
+		ex_params = {
+			name: params[:name],
+			age: params[:age],
+			description: params[:description],
+			example_relation_id: params[:example_relation_id]
+		}
 		@ex = Example.new ex_params
 		was_saved = @ex.save
 		unless was_saved
