@@ -14,6 +14,14 @@ class ExamplesController < ApplicationController
 		@ex = Example.create(name: params[:name], age: params[:age], description: params[:description])
 	end
 
+	def update
+		@ex = Example.find(params[:id])
+		@ex.name = params[:name]
+		@ex.age = params[:age]
+		@ex.description = params[:description]
+		@ex.save
+	end
+
 	def destroy
 		puts "destroy"
 		Example.destroy params[:id]
