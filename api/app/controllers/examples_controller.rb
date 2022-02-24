@@ -1,4 +1,6 @@
 class ExamplesController < ApplicationController
+	before_action :run_before, only: [:index, :show]
+
 	def index
 		puts "index"
 		@exs = Example.all
@@ -44,5 +46,10 @@ class ExamplesController < ApplicationController
 	def search_name
 		puts "search_name"
 		@exs = Example.where "name like ?", "#{params[:name]}%"
+	end
+
+	private
+	def run_before
+		puts "Run before"
 	end
 end
